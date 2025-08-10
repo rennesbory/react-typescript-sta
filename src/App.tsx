@@ -172,6 +172,7 @@ function App() {
   
   const [email, setEmail] = useState('')
   const [heroVideoError, setHeroVideoError] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
   const heroVideoRef = useRef<HTMLVideoElement>(null)
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(-1)
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -315,8 +316,8 @@ function App() {
             </button>
             
             <Button 
-              onClick={() => scrollToSection('download')}
-              className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg transition-all duration-300 text-white border-0"
+              onClick={() => toast.info("Coming Soon! 🚀", { duration: 3000 })}
+              className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg active:scale-95 transform transition-all duration-200 ease-out text-white border-0 text-sm md:text-base px-3 md:px-4 py-2"
             >
               Get the App
             </Button>
@@ -330,13 +331,20 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex justify-center mb-12">
+                {!imagesLoaded && (
+                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl bg-gradient-to-r from-emerald-100 to-teal-100 animate-pulse flex items-center justify-center">
+                    <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-gradient-to-r from-emerald-200 to-teal-200 animate-pulse"></div>
+                  </div>
+                )}
                 <img 
                   src={feelisLogo} 
                   alt="Feelis logo" 
-                  className="w-48 h-48 rounded-2xl object-cover"
+                  className={`w-32 h-32 md:w-48 md:h-48 rounded-2xl object-cover transition-opacity duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  onLoad={() => setImagesLoaded(true)}
                   onError={(e) => {
                     console.warn('Logo failed to load, using fallback')
                     e.currentTarget.style.display = 'none'
+                    setImagesLoaded(true)
                   }}
                 />
               </div>
@@ -345,15 +353,15 @@ function App() {
                   A soft place for your feelings.
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                A cozy little journaling hug for your heart, guided by Pearll.
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed text-center">
+                A cozy little journaling hug for your heart, guided by Pearll
               </p>
               
-              <div className="flex flex-wrap gap-4 mb-6">
+              <div className="flex flex-wrap gap-4 mb-6 justify-center">
                 <Button 
                   size="lg" 
-                  onClick={() => scrollToSection('download')}
-                  className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg transition-all duration-300 text-white border-0"
+                  onClick={() => toast.info("Coming Soon! 🚀", { duration: 3000 })}
+                  className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg active:scale-95 transform transition-all duration-200 ease-out text-white border-0"
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download (iOS)
@@ -362,25 +370,14 @@ function App() {
                   size="lg" 
                   variant="outline" 
                   onClick={() => scrollToSection('video')}
-                  className="rounded-xl glass-card hover:scale-105 hover:shadow-lg hover:bg-white/10 transition-all duration-300"
+                  className="rounded-xl glass-card hover:scale-105 hover:shadow-lg hover:bg-white/10 active:scale-95 transform transition-all duration-200 ease-out"
                 >
                   <Play className="w-5 h-5 mr-2" />
                   Watch Trailer
                 </Button>
               </div>
 
-              <div className="flex flex-wrap gap-4 text-sm">
-                <span className="glass-card px-4 py-2 rounded-full font-semibold flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-                  No sign-up required
-                </span>
-                <span className="glass-card px-4 py-2 rounded-full font-semibold">
-                  Private by design
-                </span>
-                <span className="glass-card px-4 py-2 rounded-full font-semibold">
-                  Tiny, daily wins
-                </span>
-              </div>
+
             </div>
 
             <div>
@@ -441,7 +438,7 @@ function App() {
       <section id="features" className="py-20 px-6">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                 Designed for gentle progress
               </span>
@@ -469,7 +466,7 @@ function App() {
       <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                 Your Daily Moment of Peace
               </span>
@@ -482,10 +479,12 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
-                Step 01
+              <div className="flex justify-center">
+                <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                  Step 01
+                </div>
               </div>
-              <h3 className="text-3xl md:text-4xl font-bold">
+              <h3 className="text-3xl md:text-4xl font-bold text-center">
                 <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                   Check In With Yourself
                 </span>
@@ -499,18 +498,24 @@ function App() {
             <div className="relative">
               <div className="flex gap-6 justify-center">
                 {/* Left Phone - ss03.jpeg */}
-                <img
-                  src={ss03}
-                  alt="Feelis emotion selection screen"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                />
+                <div className="relative">
+                  <div className="w-64 md:w-80 h-[500px] md:h-[600px] rounded-3xl bg-gradient-to-r from-emerald-100 to-teal-100 animate-pulse"></div>
+                  <img
+                    src={ss03}
+                    alt="Feelis emotion selection screen"
+                    className="absolute inset-0 w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  />
+                </div>
 
                 {/* Right Phone - ss02.jpeg */}
-                <img
-                  src={ss02}
-                  alt="Feelis journaling environment screen"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                />
+                <div className="relative">
+                  <div className="w-64 md:w-80 h-[500px] md:h-[600px] rounded-3xl bg-gradient-to-r from-emerald-100 to-teal-100 animate-pulse"></div>
+                  <img
+                    src={ss02}
+                    alt="Feelis journaling environment screen"
+                    className="absolute inset-0 w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -528,24 +533,26 @@ function App() {
                 <img
                   src={ss01}
                   alt="Feelis journaling screen 1"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss05.jpeg */}
                 <img
                   src={ss05}
                   alt="Feelis journaling screen 2"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
               </div>
             </div>
 
             {/* Right Column - Text Content */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
-                Step 02
+              <div className="flex justify-center">
+                <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                  Step 02
+                </div>
               </div>
-              <h3 className="text-3xl md:text-4xl font-bold">
+              <h3 className="text-3xl md:text-4xl font-bold text-center">
                 <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                   Reflect in a Cozy Space
                 </span>
@@ -564,10 +571,12 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
-                Step 03
+              <div className="flex justify-center">
+                <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                  Step 03
+                </div>
               </div>
-              <h3 className="text-3xl md:text-4xl font-bold">
+              <h3 className="text-3xl md:text-4xl font-bold text-center">
                 <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                   Discover Your Patterns
                 </span>
@@ -624,10 +633,12 @@ function App() {
 
             {/* Right Column - Text Content */}
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
-                Step 04
+              <div className="flex justify-center">
+                <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                  Step 04
+                </div>
               </div>
-              <h3 className="text-3xl md:text-4xl font-bold">
+              <h3 className="text-3xl md:text-4xl font-bold text-center">
                 <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                   Find a Moment of Calm
                 </span>
@@ -644,7 +655,7 @@ function App() {
       <section id="gallery" className="py-20 px-6">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                 A world that feels like a hug
               </span>
@@ -684,11 +695,11 @@ function App() {
             </div>
             
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
-                  See Feelis in motion
-                </span>
-              </h2>
+                          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+              <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                See Feelis in motion
+              </span>
+            </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 A short walkthrough of the breathing loop, emotion prompts, and the cozy visual system that makes you want to come back.
               </p>
@@ -720,7 +731,7 @@ function App() {
       {/* Download Section */}
       <section id="download" className="py-20 px-6">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">
             <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
               Get Feelis
             </span>
