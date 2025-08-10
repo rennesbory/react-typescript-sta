@@ -516,19 +516,19 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
-                {/* Primary Phone - ss03.jpeg */}
+              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+                {/* Phone - ss03.jpeg */}
                 <img
                   src={ss03}
                   alt="Feelis emotion selection screen"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
 
-                {/* Secondary Phone - ss02.jpeg (Desktop only) */}
+                {/* Phone - ss02.jpeg */}
                 <img
                   src={ss02}
                   alt="Feelis journaling environment screen"
-                  className="hidden lg:block w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
               </div>
             </div>
@@ -559,19 +559,19 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
-                {/* Primary Phone - ss01.jpeg */}
+              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+                {/* Phone - ss01.jpeg */}
                 <img
                   src={ss01}
                   alt="Feelis journaling screen 1"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
 
-                {/* Secondary Phone - ss05.jpeg (Desktop only) */}
+                {/* Phone - ss05.jpeg */}
                 <img
                   src={ss05}
                   alt="Feelis journaling screen 2"
-                  className="hidden lg:block w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
               </div>
             </div>
@@ -602,19 +602,19 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
-                {/* Primary Phone - ss06.jpeg */}
+              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+                {/* Phone - ss06.jpeg */}
                 <img
                   src={ss06}
                   alt="Feelis insights screen 1"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
 
-                {/* Secondary Phone - ss07.jpeg (Desktop only) */}
+                {/* Phone - ss07.jpeg */}
                 <img
                   src={ss07}
                   alt="Feelis insights screen 2"
-                  className="hidden lg:block w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
               </div>
             </div>
@@ -645,19 +645,19 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
-                {/* Primary Phone - ss08.jpeg */}
+              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+                {/* Phone - ss08.jpeg */}
                 <img
                   src={ss08}
                   alt="Feelis calm screen 1"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
 
-                {/* Secondary Phone - ss09.jpeg (Desktop only) */}
+                {/* Phone - ss09.jpeg */}
                 <img
                   src={ss09}
                   alt="Feelis calm screen 2"
-                  className="hidden lg:block w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
                 />
               </div>
             </div>
