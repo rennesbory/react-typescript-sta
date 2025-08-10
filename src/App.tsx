@@ -176,6 +176,14 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const heroVideoRef = useRef<HTMLVideoElement>(null)
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(-1)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [scrollProgress2, setScrollProgress2] = useState(0)
+  const [scrollProgress3, setScrollProgress3] = useState(0)
+  const [scrollProgress4, setScrollProgress4] = useState(0)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const scrollContainerRef2 = useRef<HTMLDivElement>(null)
+  const scrollContainerRef3 = useRef<HTMLDivElement>(null)
+  const scrollContainerRef4 = useRef<HTMLDivElement>(null)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxContent, setLightboxContent] = useState<{
     type: 'image' | 'video'
@@ -251,6 +259,39 @@ function App() {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode)
     document.documentElement.classList.toggle('dark')
+  }
+
+  // Handle horizontal scroll for image containers
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.currentTarget
+    const scrollLeft = target.scrollLeft
+    const maxScrollLeft = target.scrollWidth - target.clientWidth
+    const progress = maxScrollLeft > 0 ? scrollLeft / maxScrollLeft : 0
+    setScrollProgress(progress)
+  }
+
+  const handleScroll2 = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.currentTarget
+    const scrollLeft = target.scrollLeft
+    const maxScrollLeft = target.scrollWidth - target.clientWidth
+    const progress = maxScrollLeft > 0 ? scrollLeft / maxScrollLeft : 0
+    setScrollProgress2(progress)
+  }
+
+  const handleScroll3 = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.currentTarget
+    const scrollLeft = target.scrollLeft
+    const maxScrollLeft = target.scrollWidth - target.clientWidth
+    const progress = maxScrollLeft > 0 ? scrollLeft / maxScrollLeft : 0
+    setScrollProgress3(progress)
+  }
+
+  const handleScroll4 = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.currentTarget
+    const scrollLeft = target.scrollLeft
+    const maxScrollLeft = target.scrollWidth - target.clientWidth
+    const progress = maxScrollLeft > 0 ? scrollLeft / maxScrollLeft : 0
+    setScrollProgress4(progress)
   }
 
   // Handle keyboard navigation
@@ -516,20 +557,50 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+              {/* Left Arrow */}
+              <button 
+                onClick={() => scrollContainerRef.current?.scrollTo({ left: 0, behavior: 'smooth' })}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+
+              {/* Right Arrow */}
+              <button 
+                onClick={() => scrollContainerRef.current?.scrollTo({ left: scrollContainerRef.current.scrollWidth, behavior: 'smooth' })}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+
+              <div 
+                ref={scrollContainerRef}
+                onScroll={handleScroll}
+                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+              >
                 {/* Phone - ss03.jpeg */}
                 <img
                   src={ss03}
                   alt="Feelis emotion selection screen"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss02.jpeg */}
                 <img
                   src={ss02}
                   alt="Feelis journaling environment screen"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
+              </div>
+
+              {/* Indicators */}
+              <div className="flex justify-center gap-2 mt-4 lg:hidden">
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress < 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress >= 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
               </div>
             </div>
           </div>
@@ -559,20 +630,50 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+              {/* Left Arrow */}
+              <button 
+                onClick={() => scrollContainerRef2.current?.scrollTo({ left: 0, behavior: 'smooth' })}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+
+              {/* Right Arrow */}
+              <button 
+                onClick={() => scrollContainerRef2.current?.scrollTo({ left: scrollContainerRef2.current.scrollWidth, behavior: 'smooth' })}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+
+              <div 
+                ref={scrollContainerRef2}
+                onScroll={handleScroll2}
+                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+              >
                 {/* Phone - ss01.jpeg */}
                 <img
                   src={ss01}
                   alt="Feelis journaling screen 1"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss05.jpeg */}
                 <img
                   src={ss05}
                   alt="Feelis journaling screen 2"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
+              </div>
+
+              {/* Indicators */}
+              <div className="flex justify-center gap-2 mt-4 lg:hidden">
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress2 < 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress2 >= 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
               </div>
             </div>
           </div>
@@ -602,20 +703,50 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+              {/* Left Arrow */}
+              <button 
+                onClick={() => scrollContainerRef3.current?.scrollTo({ left: 0, behavior: 'smooth' })}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+
+              {/* Right Arrow */}
+              <button 
+                onClick={() => scrollContainerRef3.current?.scrollTo({ left: scrollContainerRef3.current.scrollWidth, behavior: 'smooth' })}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+
+              <div 
+                ref={scrollContainerRef3}
+                onScroll={handleScroll3}
+                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+              >
                 {/* Phone - ss06.jpeg */}
                 <img
                   src={ss06}
                   alt="Feelis insights screen 1"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss07.jpeg */}
                 <img
                   src={ss07}
                   alt="Feelis insights screen 2"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
+              </div>
+
+              {/* Indicators */}
+              <div className="flex justify-center gap-2 mt-4 lg:hidden">
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress3 < 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress3 >= 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
               </div>
             </div>
           </div>
@@ -645,20 +776,50 @@ function App() {
 
             {/* Right Column - Mobile App Screenshots */}
             <div className="relative">
-              <div className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
+              {/* Left Arrow */}
+              <button 
+                onClick={() => scrollContainerRef4.current?.scrollTo({ left: 0, behavior: 'smooth' })}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+
+              {/* Right Arrow */}
+              <button 
+                onClick={() => scrollContainerRef4.current?.scrollTo({ left: scrollContainerRef4.current.scrollWidth, behavior: 'smooth' })}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/40 transition-all duration-200 lg:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+
+              <div 
+                ref={scrollContainerRef4}
+                onScroll={handleScroll4}
+                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+              >
                 {/* Phone - ss08.jpeg */}
                 <img
                   src={ss08}
                   alt="Feelis calm screen 1"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss09.jpeg */}
                 <img
                   src={ss09}
                   alt="Feelis calm screen 2"
-                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0"
+                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
+              </div>
+
+              {/* Indicators */}
+              <div className="flex justify-center gap-2 mt-4 lg:hidden">
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress4 < 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
+                <div className={`w-2 h-2 rounded-full transition-all duration-200 ${scrollProgress4 >= 0.5 ? 'bg-gray-400' : 'bg-gray-200'}`}></div>
               </div>
             </div>
           </div>
