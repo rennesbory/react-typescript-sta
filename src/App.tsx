@@ -498,7 +498,7 @@ function App() {
       {/* Features Section */}
       <section id="features" className="py-20 px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                 Designed for gentle progress
@@ -829,7 +829,7 @@ function App() {
       {/* Gallery Section */}
       <section id="gallery" className="py-20 px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                 A world that feels like a hug
