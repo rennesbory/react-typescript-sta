@@ -208,13 +208,7 @@ function FloatingAnimation() {
         />
       </div>
       
-      <div className="flower pos-top-5 anim-pulse" style={{animationDelay: '-3s'}}>
-        <img 
-          src={flowerImage} 
-          alt="Floating flower" 
-          className="w-full h-full object-contain"
-        />
-      </div>
+
       
       <div className="flower pos-top-6 anim-bounce" style={{animationDelay: '-1s'}}>
         <img 
