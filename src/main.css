@@ -251,10 +251,10 @@
   pointer-events: none;
 }
 
-/* 🌸 꽃 기본 스타일 (크기 키움!) */
+/* 🌸 꽃 기본 스타일 (원래 크기) */
 .flower {
   position: absolute;
-  /* 이전보다 크기를 훨씬 키웠습니다 */
+  /* 원래 크기로 복원 */
   width: 80px;
   height: 80px;
   display: flex;
@@ -267,14 +267,15 @@
  */
 
 /* --- 로고 위쪽 배치 (4인치 위로 올림) --- */
-.pos-top-1 { top: -15%; left: 15%; }
+.pos-top-1 { top: -5%; left: -5%; }
 .pos-top-2 { top: 5%; right: 15%; } /* 로고 오른쪽 */
-.pos-top-3 { top: -20%; left: 45%; }
+.pos-top-3 { top: -15%; left: 35%; }
 
 /* --- 추가 위쪽 배치 (2인치 더 위로) --- */
-.pos-top-4 { top: -5%; left: 5%; }
-.pos-top-5 { top: -28%; right: 25%; }
+.pos-top-4 { top: -5%; left: 25%; }
+.pos-top-5 { top: -8%; right: 25%; }
 .pos-top-6 { top: 5%; left: 15%; } /* 로고 왼쪽 */
+.pos-top-7 { top: 12%; right: 5%; } /* 5번 꽃 오른쪽 */
 
 /* --- 버튼 아래쪽 배치 (4인치 아래로 내림) --- */
 .pos-bottom-1 { bottom: -22%; left: 20%; }
@@ -283,67 +284,80 @@
 
 /* 🎈 활기찬 움직임 Keyframes */
 
-/* 1. 더 역동적인 떠다니는 움직임 (스케일 + 좌우 확장) */
+/* 1. 더 부드러운 떠다니는 움직임 (좌우 이동 제거) */
 @keyframes float {
-  0%   { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
-  25%  { transform: translateY(-35px) translateX(25px) rotate(5deg) scale(1.3); }
-  50%  { transform: translateY(-45px) translateX(-20px) rotate(-3deg) scale(1.4); }
-  75%  { transform: translateY(-25px) translateX(30px) rotate(8deg) scale(1.2); }
-  100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
+  0%   { transform: translateY(0px) rotate(0deg) scale(1); }
+  25%  { transform: translateY(-25px) rotate(3deg) scale(1.15); }
+  50%  { transform: translateY(-30px) rotate(-2deg) scale(1.2); }
+  75%  { transform: translateY(-20px) rotate(4deg) scale(1.1); }
+  100% { transform: translateY(0px) rotate(0deg) scale(1); }
 }
 
-/* 2. 더 생동감 있는 커졌다 작아지는 움직임 (큰 스케일) */
+/* 2. 더 부드러운 커졌다 작아지는 움직임 (좌우 이동 제거) */
 @keyframes pulse {
   0%   { transform: scale(1) rotate(0deg); }
-  25%  { transform: scale(1.4) rotate(2deg); }
-  50%  { transform: scale(1.6) rotate(-1deg); }
-  75%  { transform: scale(1.3) rotate(3deg); }
+  25%  { transform: scale(1.2) rotate(1deg); }
+  50%  { transform: scale(1.3) rotate(-1deg); }
+  75%  { transform: scale(1.15) rotate(2deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
 
-/* 3. 더 활발한 흔들리는 움직임 (스케일 + 좌우 확장) */
+/* 3. 더 부드러운 흔들리는 움직임 (좌우 이동 제거) */
 @keyframes wobble {
-  0%   { transform: rotate(-15deg) scale(1) translateX(0px); }
-  25%  { transform: rotate(20deg) scale(1.2) translateX(15px); }
-  50%  { transform: rotate(-25deg) scale(0.9) translateX(-20px); }
-  75%  { transform: rotate(15deg) scale(1.3) translateX(25px); }
-  100% { transform: rotate(-15deg) scale(1) translateX(0px); }
+  0%   { transform: rotate(-8deg) scale(1); }
+  25%  { transform: rotate(12deg) scale(1.1); }
+  50%  { transform: rotate(-15deg) scale(0.95); }
+  75%  { transform: rotate(10deg) scale(1.15); }
+  100% { transform: rotate(-8deg) scale(1); }
 }
 
-/* 4. 새로운! 통통 튀는 움직임 (큰 스케일 + 좌우 확장) */
+/* 4. 더 부드러운 통통 튀는 움직임 (좌우 이동 제거) */
 @keyframes bounce {
-  0%   { transform: translateY(0px) scale(1) translateX(0px); }
-  25%  { transform: translateY(-40px) scale(1.4) translateX(20px); }
-  50%  { transform: translateY(-50px) scale(0.8) translateX(-15px); }
-  75%  { transform: translateY(-30px) scale(1.5) translateX(25px); }
-  100% { transform: translateY(0px) scale(1) translateX(0px); }
+  0%   { transform: translateY(0px) scale(1); }
+  25%  { transform: translateY(-25px) scale(1.2); }
+  50%  { transform: translateY(-30px) scale(0.9); }
+  75%  { transform: translateY(-20px) scale(1.25); }
+  100% { transform: translateY(0px) scale(1); }
 }
 
-/* 5. 새로운! 회전하면서 떠다니는 움직임 (큰 스케일 + 좌우 확장) */
+/* 5. 더 부드러운 회전하면서 떠다니는 움직임 (좌우 이동 제거) */
 @keyframes spin-float {
-  0%   { transform: translateY(0px) rotate(0deg) scale(1) translateX(0px); }
-  33%  { transform: translateY(-30px) rotate(120deg) scale(1.3) translateX(20px); }
-  66%  { transform: translateY(-40px) rotate(240deg) scale(0.9) translateX(-25px); }
-  100% { transform: translateY(0px) rotate(360deg) scale(1) translateX(0px); }
+  0%   { transform: translateY(0px) rotate(0deg) scale(1); }
+  33%  { transform: translateY(-20px) rotate(120deg) scale(1.15); }
+  66%  { transform: translateY(-25px) rotate(240deg) scale(0.95); }
+  100% { transform: translateY(0px) rotate(360deg) scale(1); }
 }
 
-/* ⚙️ 활기찬 애니메이션 적용 클래스 */
+/* 6. 새로운! 귀여운 살랑살랑 움직임 */
+@keyframes gentle-wiggle {
+  0%   { transform: rotate(-5deg) scale(1); }
+  25%  { transform: rotate(8deg) scale(1.05); }
+  50%  { transform: rotate(-6deg) scale(0.98); }
+  75%  { transform: rotate(7deg) scale(1.08); }
+  100% { transform: rotate(-5deg) scale(1); }
+}
+
+/* ⚙️ 귀여운 애니메이션 적용 클래스 */
 .anim-float {
-  animation: float 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation: float 7s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
 }
 
 .anim-pulse {
-  animation: pulse 3.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  animation: pulse 6s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
 .anim-wobble {
-  animation: wobble 4.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  animation: wobble 6.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
 
 .anim-bounce {
-  animation: bounce 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  animation: bounce 5.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
 }
 
 .anim-spin-float {
-  animation: spin-float 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  animation: spin-float 8s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}
+
+.anim-gentle-wiggle {
+  animation: gentle-wiggle 7.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
 }

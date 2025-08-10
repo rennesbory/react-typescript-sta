@@ -176,7 +176,7 @@ function FloatingAnimation() {
   return (
     <div className="flower-container">
       {/* 로고 위쪽 배치 */}
-      <div className="flower pos-top-1 anim-spin-float">
+      <div className="flower pos-top-1 anim-spin-float" style={{width: '160px', height: '160px'}}>
         <img 
           src={flowerImage} 
           alt="Floating flower" 
@@ -184,7 +184,7 @@ function FloatingAnimation() {
         />
       </div>
       
-      <div className="flower pos-top-2 anim-bounce" style={{animationDelay: '-1.5s'}}>
+      <div className="flower pos-top-5 anim-gentle-wiggle" style={{animationDelay: '-3s'}}>
         <img 
           src={flowerImage} 
           alt="Floating flower" 
@@ -192,7 +192,7 @@ function FloatingAnimation() {
         />
       </div>
       
-      <div className="flower pos-top-3 anim-wobble">
+      <div className="flower pos-top-7 anim-gentle-wiggle" style={{animationDelay: '-2s', width: '105.6px', height: '105.6px'}}>
         <img 
           src={flowerImage} 
           alt="Floating flower" 
@@ -200,7 +200,7 @@ function FloatingAnimation() {
         />
       </div>
       
-      <div className="flower pos-top-4 anim-float" style={{animationDelay: '-2.5s'}}>
+      <div className="flower pos-top-3 anim-gentle-wiggle" style={{animationDelay: '-1s', width: '56px', height: '56px'}}>
         <img 
           src={flowerImage} 
           alt="Floating flower" 
@@ -209,14 +209,6 @@ function FloatingAnimation() {
       </div>
       
 
-      
-      <div className="flower pos-top-6 anim-bounce" style={{animationDelay: '-1s'}}>
-        <img 
-          src={flowerImage} 
-          alt="Floating flower" 
-          className="w-full h-full object-contain"
-        />
-      </div>
       
 
     </div>
