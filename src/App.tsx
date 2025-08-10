@@ -132,7 +132,7 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
       <video
         ref={videoRef}
         src={video.src}
-        className="w-full aspect-[9/16] object-cover rounded-[20px]"
+        className="w-full aspect-[9/16] object-cover"
         muted
         loop
         playsInline
@@ -157,7 +157,7 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
       </Button>
 
       {/* Emotion Label */}
-      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute bottom-4 left-4 right-4 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
         <div className="bg-black/20 backdrop-blur-sm rounded-xl p-3 text-white">
           <h3 className="font-bold text-lg mb-1">{video.emotion}</h3>
           <p className="text-sm opacity-90">{video.description}</p>
@@ -444,7 +444,7 @@ function App() {
             <div>
               <div className="hero-video-container">
                 {heroVideoError ? (
-                  <div className="w-full aspect-[9/16] bg-muted rounded-[20px] flex flex-col items-center justify-center p-4">
+                  <div className="w-full aspect-[9/16] bg-muted flex flex-col items-center justify-center p-4">
                     <p className="text-muted-foreground text-center mb-2">Video unavailable</p>
                     <p className="text-muted-foreground text-xs text-center opacity-70 mb-3">
                       Hero video
@@ -466,7 +466,7 @@ function App() {
                   <video
                     ref={heroVideoRef}
                     src={heroVideo}
-                    className="w-full aspect-[9/16] object-cover rounded-[20px]"
+                    className="w-full aspect-[9/16] object-cover"
                     muted
                     loop
                     playsInline
