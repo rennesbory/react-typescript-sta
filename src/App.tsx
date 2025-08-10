@@ -501,7 +501,7 @@ function App() {
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
-                Designed for gentle progress
+                Designed for Gentle Progress
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -526,7 +526,7 @@ function App() {
       {/* Your Daily Moment of Peace Section - New */}
       <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                 Your Daily Moment of Peace
@@ -550,7 +550,7 @@ function App() {
                   Check In With Yourself
                 </span>
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed text-center">
                 Start by choosing the feeling that best represents your moment. Our beautiful, expressive characters make it easy to identify and acknowledge your emotions.
               </p>
             </div>
@@ -623,7 +623,7 @@ function App() {
                   Reflect in a Cozy Space
                 </span>
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed text-center">
                 Write as much or as little as you want. Our thoughtful, context-aware prompts help guide your reflection in a calm, pressure-free environment that adapts to your mood.
               </p>
             </div>
@@ -696,7 +696,7 @@ function App() {
                   Discover Your Patterns
                 </span>
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed text-center">
                 See your emotional world unfold through simple, beautiful charts. Understand your most frequent feelings and discover gentle insights over time.
               </p>
             </div>
@@ -769,7 +769,7 @@ function App() {
                   Find a Moment of Calm
                 </span>
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed text-center">
                 Start or end your day with a thoughtful quote presented in a serene, interactive world. Personalize the scene to match your vibe and find a quiet, beautiful space for a moment of reflection.
               </p>
             </div>
@@ -832,7 +832,7 @@ function App() {
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
               <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
-                A world that feels like a hug
+                A World That Feels Like a Hug
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
