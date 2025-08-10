@@ -518,24 +518,18 @@ function App() {
             <div className="relative">
               <div className="flex gap-6 justify-center">
                 {/* Left Phone - ss03.jpeg */}
-                <div className="relative">
-                  <div className="w-64 md:w-80 h-[500px] md:h-[600px] rounded-3xl bg-gradient-to-r from-emerald-100 to-teal-100 animate-pulse"></div>
-                  <img
-                    src={ss03}
-                    alt="Feelis emotion selection screen"
-                    className="absolute inset-0 w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                  />
-                </div>
+                <img
+                  src={ss03}
+                  alt="Feelis emotion selection screen"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                />
 
                 {/* Right Phone - ss02.jpeg */}
-                <div className="relative">
-                  <div className="w-64 md:w-80 h-[500px] md:h-[600px] rounded-3xl bg-gradient-to-r from-emerald-100 to-teal-100 animate-pulse"></div>
-                  <img
-                    src={ss02}
-                    alt="Feelis journaling environment screen"
-                    className="absolute inset-0 w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                  />
-                </div>
+                <img
+                  src={ss02}
+                  alt="Feelis journaling environment screen"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                />
               </div>
             </div>
           </div>
@@ -546,26 +540,7 @@ function App() {
       <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Mobile App Screenshots */}
-            <div className="relative">
-              <div className="flex gap-6 justify-center">
-                {/* Left Phone - ss01.jpeg */}
-                <img
-                  src={ss01}
-                  alt="Feelis journaling screen 1"
-                  className="w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                />
-
-                {/* Right Phone - ss05.jpeg */}
-                <img
-                  src={ss05}
-                  alt="Feelis journaling screen 2"
-                  className="w-64 md:w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                />
-              </div>
-            </div>
-
-            {/* Right Column - Text Content */}
+            {/* Left Column - Text Content */}
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
@@ -580,6 +555,25 @@ function App() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Write as much or as little as you want. Our thoughtful, context-aware prompts help guide your reflection in a calm, pressure-free environment that adapts to your mood.
               </p>
+            </div>
+
+            {/* Right Column - Mobile App Screenshots */}
+            <div className="relative">
+              <div className="flex gap-6 justify-center">
+                {/* Left Phone - ss01.jpeg */}
+                <img
+                  src={ss01}
+                  alt="Feelis journaling screen 1"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                />
+
+                {/* Right Phone - ss05.jpeg */}
+                <img
+                  src={ss05}
+                  alt="Feelis journaling screen 2"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -613,14 +607,14 @@ function App() {
                 <img
                   src={ss06}
                   alt="Feelis insights screen 1"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
                 />
 
                 {/* Right Phone - ss07.jpeg */}
                 <img
                   src={ss07}
                   alt="Feelis insights screen 2"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
                 />
               </div>
             </div>
@@ -632,26 +626,7 @@ function App() {
       <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Mobile App Screenshots */}
-            <div className="relative">
-              <div className="flex gap-6 justify-center">
-                {/* Left Phone - ss08.jpeg */}
-                <img
-                  src={ss08}
-                  alt="Feelis calm screen 1"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                />
-
-                {/* Right Phone - ss09.jpeg */}
-                <img
-                  src={ss09}
-                  alt="Feelis calm screen 2"
-                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                />
-              </div>
-            </div>
-
-            {/* Right Column - Text Content */}
+            {/* Left Column - Text Content */}
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
@@ -666,6 +641,25 @@ function App() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Start or end your day with a thoughtful quote presented in a serene, interactive world. Personalize the scene to match your vibe and find a quiet, beautiful space for a moment of reflection.
               </p>
+            </div>
+
+            {/* Right Column - Mobile App Screenshots */}
+            <div className="relative">
+              <div className="flex gap-6 justify-center">
+                {/* Left Phone - ss08.jpeg */}
+                <img
+                  src={ss08}
+                  alt="Feelis calm screen 1"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                />
+
+                {/* Right Phone - ss09.jpeg */}
+                <img
+                  src={ss09}
+                  alt="Feelis calm screen 2"
+                  className="w-64 md:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
