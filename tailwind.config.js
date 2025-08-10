@@ -18,6 +18,10 @@ const defaultTheme = {
     padding: "2rem",
   },
   extend: {
+    fontFamily: {
+      sans: ['Quicksand', 'sans-serif'],
+      soft: ['Quicksand', 'sans-serif'],
+    },
     screens: {
       coarse: { raw: "(pointer: coarse)" },
       fine: { raw: "(pointer: fine)" },

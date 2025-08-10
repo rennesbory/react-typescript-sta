@@ -9,30 +9,32 @@ import { toast, Toaster } from 'sonner'
 
 
 // Import static assets with fallback handling
-// Note: Replace with actual logo when available
-const feelisLogo = '/src/assets/images/feelis_logo.png'
+const feelisLogo = new URL('./assets/images/feelis_logo.png', import.meta.url).href
 
 // Screenshot images
-const screenshots = [
-  '/src/assets/images/ss01.jpeg',
-  '/src/assets/images/ss02.jpeg',
-  '/src/assets/images/ss03.jpeg',
-  '/src/assets/images/ss04.jpeg',
-  '/src/assets/images/ss05.jpeg',
-  '/src/assets/images/ss06.jpeg'
-]
+const ss01 = new URL('./assets/images/ss01.jpeg', import.meta.url).href
+const ss02 = new URL('./assets/images/ss02.jpeg', import.meta.url).href
+const ss03 = new URL('./assets/images/ss03.jpeg', import.meta.url).href
+const ss04 = new URL('./assets/images/ss04.jpeg', import.meta.url).href
+const ss05 = new URL('./assets/images/ss05.jpeg', import.meta.url).href
+const ss06 = new URL('./assets/images/ss06.jpeg', import.meta.url).href
+const ss07 = new URL('./assets/images/ss07.jpeg', import.meta.url).href
+const ss08 = new URL('./assets/images/ss08.jpeg', import.meta.url).href
+const ss09 = new URL('./assets/images/ss09.jpeg', import.meta.url).href
 
-// Video paths - using Vite's public URL format
-const heroVideo = '/src/assets/videos/emoly_intro_trim.mp4'
-const webAngry = '/src/assets/videos/web_Animation_background_angry.mp4'
-const webAnxious = '/src/assets/videos/web_Animation_background_anxious.mp4'
-const webCalm = '/src/assets/videos/web_Animation_background_calm.mp4'
-const webEmpty = '/src/assets/videos/web_Animation_background_empty.mp4'
-const webExcited = '/src/assets/videos/web_Animation_background_excited.mp4'
-const webGrateful = '/src/assets/videos/web_Animation_background_grateful.mp4'
-const webHappy = '/src/assets/videos/web_Animation_background_happy.mp4'
-const webSad = '/src/assets/videos/web_Animation_background_sad.mp4'
-const webTired = '/src/assets/videos/web_Animation_background_tired.mp4'
+const screenshots = [ss01, ss02, ss03, ss04, ss05, ss06]
+
+// Video paths - using Vite's import format
+import heroVideo from './assets/videos/emoly_intro_trim.mp4'
+import webAngry from './assets/videos/web_Animation_background_angry.mp4'
+import webAnxious from './assets/videos/web_Animation_background_anxious.mp4'
+import webCalm from './assets/videos/web_Animation_background_calm.mp4'
+import webEmpty from './assets/videos/web_Animation_background_empty.mp4'
+import webExcited from './assets/videos/web_Animation_background_excited.mp4'
+import webGrateful from './assets/videos/web_Animation_background_grateful.mp4'
+import webHappy from './assets/videos/web_Animation_background_happy.mp4'
+import webSad from './assets/videos/web_Animation_background_sad.mp4'
+import webTired from './assets/videos/web_Animation_background_tired.mp4'
 
 // Gallery videos array
 const galleryVideos = [
@@ -288,7 +290,7 @@ function App() {
   }, [heroVideoError])
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[oklch(0.995_0.002_85)]">
       <Toaster richColors position="top-right" />
       {/* Header */}
       <header className="sticky top-0 z-50 glass-card border-b">
@@ -296,18 +298,20 @@ function App() {
           <nav className="flex items-center justify-between h-16">
             <button 
               onClick={() => scrollToSection('home')} 
-              className="flex items-center gap-3 font-bold text-lg"
+              className="flex items-center gap-3 font-bold text-lg hover:opacity-80 transition-opacity"
             >
               <img 
                 src={feelisLogo} 
                 alt="Feelis logo" 
-                className="w-9 h-9 rounded-xl"
+                className="w-8 h-8 rounded-lg object-cover"
                 onError={(e) => {
                   console.warn('Logo failed to load, using fallback')
                   e.currentTarget.style.display = 'none'
                 }}
               />
-              Feelis
+              <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                Feelis
+              </span>
             </button>
             
             <div className="hidden md:flex items-center gap-6">
@@ -345,8 +349,19 @@ function App() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <div className="flex justify-center mb-12">
+                <img 
+                  src={feelisLogo} 
+                  alt="Feelis logo" 
+                  className="w-48 h-48 rounded-2xl object-cover"
+                  onError={(e) => {
+                    console.warn('Logo failed to load, using fallback')
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-center">
+                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
                   A soft place for your feelings.
                 </span>
               </h1>
@@ -358,7 +373,7 @@ function App() {
                 <Button 
                   size="lg" 
                   onClick={() => scrollToSection('download')}
-                  className="rounded-xl bg-accent hover:bg-accent/90 hover:scale-105 hover:shadow-lg transition-all duration-300"
+                  className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg transition-all duration-300 text-white border-0"
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download (iOS)
@@ -447,7 +462,9 @@ function App() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Designed for gentle progress
+              <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                Designed for gentle progress
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Everything in Feelis is crafted to help you show up for a minute, not a marathon. Tiny rituals compound into calm.
@@ -473,7 +490,9 @@ function App() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Your Daily Moment of Peace
+              <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                Your Daily Moment of Peace
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Feelis is designed to be a simple, gentle, and beautiful flow.
@@ -487,7 +506,9 @@ function App() {
                 Step 01
               </div>
               <h3 className="text-3xl md:text-4xl font-bold">
-                Check In With Yourself
+                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                  Check In With Yourself
+                </span>
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Start by choosing the feeling that best represents your moment. Our beautiful, expressive characters make it easy to identify and acknowledge your emotions.
@@ -499,14 +520,14 @@ function App() {
               <div className="flex gap-6 justify-center">
                 {/* Left Phone - ss03.jpeg */}
                 <img
-                  src="/src/assets/images/ss03.jpeg"
+                  src={ss03}
                   alt="Feelis emotion selection screen"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss02.jpeg */}
                 <img
-                  src="/src/assets/images/ss02.jpeg"
+                  src={ss02}
                   alt="Feelis journaling environment screen"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
@@ -525,14 +546,14 @@ function App() {
               <div className="flex gap-6 justify-center">
                 {/* Left Phone - ss01.jpeg */}
                 <img
-                  src="/src/assets/images/ss01.jpeg"
+                  src={ss01}
                   alt="Feelis journaling screen 1"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss05.jpeg */}
                 <img
-                  src="/src/assets/images/ss05.jpeg"
+                  src={ss05}
                   alt="Feelis journaling screen 2"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
@@ -545,7 +566,9 @@ function App() {
                 Step 02
               </div>
               <h3 className="text-3xl md:text-4xl font-bold">
-                Reflect in a Cozy Space
+                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                  Reflect in a Cozy Space
+                </span>
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Write as much or as little as you want. Our thoughtful, context-aware prompts help guide your reflection in a calm, pressure-free environment that adapts to your mood.
@@ -565,7 +588,9 @@ function App() {
                 Step 03
               </div>
               <h3 className="text-3xl md:text-4xl font-bold">
-                Discover Your Patterns
+                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                  Discover Your Patterns
+                </span>
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 See your emotional world unfold through simple, beautiful charts. Understand your most frequent feelings and discover gentle insights over time.
@@ -577,14 +602,14 @@ function App() {
               <div className="flex gap-6 justify-center">
                 {/* Left Phone - ss06.jpeg */}
                 <img
-                  src="/src/assets/images/ss06.jpeg"
+                  src={ss06}
                   alt="Feelis insights screen 1"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss07.jpeg */}
                 <img
-                  src="/src/assets/images/ss07.jpeg"
+                  src={ss07}
                   alt="Feelis insights screen 2"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
@@ -603,14 +628,14 @@ function App() {
               <div className="flex gap-6 justify-center">
                 {/* Left Phone - ss08.jpeg */}
                 <img
-                  src="/src/assets/images/ss08.jpeg"
+                  src={ss08}
                   alt="Feelis calm screen 1"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss09.jpeg */}
                 <img
-                  src="/src/assets/images/ss09.jpeg"
+                  src={ss09}
                   alt="Feelis calm screen 2"
                   className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
@@ -623,7 +648,9 @@ function App() {
                 Step 04
               </div>
               <h3 className="text-3xl md:text-4xl font-bold">
-                Find a Moment of Calm
+                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                  Find a Moment of Calm
+                </span>
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Start or end your day with a thoughtful quote presented in a serene, interactive world. Personalize the scene to match your vibe and find a quiet, beautiful space for a moment of reflection.
@@ -638,7 +665,9 @@ function App() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              A world that feels like a hug
+              <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                A world that feels like a hug
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Breathe with Pearll, write down your feelings. Her cozy pastel world is like a warm hug for your heart.
@@ -676,7 +705,9 @@ function App() {
             
             <div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                See Feelis in motion
+                <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+                  See Feelis in motion
+                </span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 A short walkthrough of the breathing loop, emotion prompts, and the cozy visual system that makes you want to come back.
@@ -710,7 +741,9 @@ function App() {
       <section id="download" className="py-20 px-6">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Get Feelis
+            <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
+              Get Feelis
+            </span>
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
             Launching soon on the App Store. Add your email and we'll ping you on day one.
