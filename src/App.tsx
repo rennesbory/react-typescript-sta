@@ -12,7 +12,7 @@ import { HowItWorks } from '@/components/HowItWorks'
 // Note: Replace with actual logo when available
 const feelisLogo = '/src/assets/images/feelis_logo.png'
 
-// Video paths - using relative paths for better compatibility
+// Video paths - using Vite's public URL format
 const heroVideo = '/src/assets/videos/emoly_intro_trim.mp4'
 const webAngry = '/src/assets/videos/web_Animation_background_angry.mp4'
 const webAnxious = '/src/assets/videos/web_Animation_background_anxious.mp4'
@@ -53,7 +53,17 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
   useEffect(() => {
     setHasError(false)
     setIsLoading(true)
-  }, [video.src])
+    
+    // Timeout to prevent infinite loading
+    const loadingTimer = setTimeout(() => {
+      if (isLoading) {
+        console.warn(`⏰ Loading timeout for video ${index}:`, video.src)
+        setIsLoading(false)
+      }
+    }, 3000)
+    
+    return () => clearTimeout(loadingTimer)
+  }, [video.src, isLoading])
 
   const togglePlayPause = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -71,6 +81,15 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
 
   const handleVideoClick = () => {
     if (hasError) return
+    
+    // Try to play the video on click if it's not playing
+    const videoElement = videoRef.current
+    if (videoElement && !isPlaying) {
+      videoElement.play().catch((e) => {
+        console.warn(`Click play failed for video ${index}:`, e.message)
+      })
+    }
+    
     onVideoClick({
       type: 'video',
       src: video.src,
@@ -90,13 +109,19 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
   }
 
   const handleLoadedData = () => {
+    console.log(`✅ Gallery video ${index} loaded successfully:`, video.src)
     setHasError(false)
     setIsLoading(false)
-    // Auto-play on load
+  }
+
+  const handleCanPlay = () => {
+    console.log(`🎬 Gallery video ${index} can play:`, video.src)
+    setIsLoading(false)
+    // Try to play the video
     const videoElement = videoRef.current
     if (videoElement) {
       videoElement.play().catch((e) => {
-        console.warn(`Auto-play failed for video ${index}:`, e.message)
+        console.warn(`Play failed for video ${index}:`, e.message)
       })
     }
   }
@@ -106,7 +131,8 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
       src: video.src,
       error: e.target?.error,
       networkState: e.target?.networkState,
-      readyState: e.target?.readyState
+      readyState: e.target?.readyState,
+      fullUrl: window.location.origin + video.src
     })
     setHasError(true)
     setIsLoading(false)
@@ -153,9 +179,10 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
         muted
         loop
         playsInline
+        preload="metadata"
         onError={handleError}
         onLoadedData={handleLoadedData}
-        onCanPlay={() => setIsLoading(false)}
+        onCanPlay={handleCanPlay}
         onPause={() => setIsPlaying(false)}
         onPlay={() => setIsPlaying(true)}
       >
