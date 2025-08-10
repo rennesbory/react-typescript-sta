@@ -6,7 +6,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { Play, X, Download, ArrowRight, ArrowLeft, Pause } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 import { toast, Toaster } from 'sonner'
-import { HowItWorks } from '@/components/HowItWorks'
+
 
 // Import static assets with fallback handling
 // Note: Replace with actual logo when available
@@ -415,8 +415,170 @@ function App() {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <HowItWorks />
+      {/* Your Daily Moment of Peace Section - New */}
+      <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              Your Daily Moment of Peace
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Feelis is designed to be a simple, gentle, and beautiful flow.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                Step 01
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Check In With Yourself
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Start by choosing the feeling that best represents your moment. Our beautiful, expressive characters make it easy to identify and acknowledge your emotions.
+              </p>
+            </div>
+
+            {/* Right Column - Mobile App Screenshots */}
+            <div className="relative">
+              <div className="flex gap-6 justify-center">
+                {/* Left Phone - ss03.jpeg */}
+                <img
+                  src="/src/assets/images/ss03.jpeg"
+                  alt="Feelis emotion selection screen"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+
+                {/* Right Phone - ss02.jpeg */}
+                <img
+                  src="/src/assets/images/ss02.jpeg"
+                  alt="Feelis journaling environment screen"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Step 02: Reflect in a Cozy Space Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Mobile App Screenshots */}
+            <div className="relative">
+              <div className="flex gap-6 justify-center">
+                {/* Left Phone - ss01.jpeg */}
+                <img
+                  src="/src/assets/images/ss01.jpeg"
+                  alt="Feelis journaling screen 1"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+
+                {/* Right Phone - ss05.jpeg */}
+                <img
+                  src="/src/assets/images/ss05.jpeg"
+                  alt="Feelis journaling screen 2"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+              </div>
+            </div>
+
+            {/* Right Column - Text Content */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                Step 02
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Reflect in a Cozy Space
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Write as much or as little as you want. Our thoughtful, context-aware prompts help guide your reflection in a calm, pressure-free environment that adapts to your mood.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Step 03: Discover Your Patterns Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                Step 03
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Discover Your Patterns
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                See your emotional world unfold through simple, beautiful charts. Understand your most frequent feelings and discover gentle insights over time.
+              </p>
+            </div>
+
+            {/* Right Column - Mobile App Screenshots */}
+            <div className="relative">
+              <div className="flex gap-6 justify-center">
+                {/* Left Phone - ss06.jpeg */}
+                <img
+                  src="/src/assets/images/ss06.jpeg"
+                  alt="Feelis insights screen 1"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+
+                {/* Right Phone - ss07.jpeg */}
+                <img
+                  src="/src/assets/images/ss07.jpeg"
+                  alt="Feelis insights screen 2"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Step 04: Find a Moment of Calm Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/10">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Mobile App Screenshots */}
+            <div className="relative">
+              <div className="flex gap-6 justify-center">
+                {/* Left Phone - ss08.jpeg */}
+                <img
+                  src="/src/assets/images/ss08.jpeg"
+                  alt="Feelis calm screen 1"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+
+                {/* Right Phone - ss09.jpeg */}
+                <img
+                  src="/src/assets/images/ss09.jpeg"
+                  alt="Feelis calm screen 2"
+                  className="w-80 rounded-3xl shadow-xl"
+                />
+              </div>
+            </div>
+
+            {/* Right Column - Text Content */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-lg">
+                Step 04
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Find a Moment of Calm
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Start or end your day with a thoughtful quote presented in a serene, interactive world. Personalize the scene to match your vibe and find a quiet, beautiful space for a moment of reflection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Gallery Section */}
       <section id="gallery" className="py-20 px-6">
@@ -438,154 +600,6 @@ function App() {
                 index={index}
                 onVideoClick={openLightbox}
               />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Your Daily Moment of Peace Section */}
-      <section id="daily-moment" className="py-20 px-6">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Your Daily Moment of Peace
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Feelis is designed to be a simple, gentle, and beautiful flow.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-6">
-                A gentle ritual for your heart
-              </h3>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Every day, take a moment to breathe with Pearll and write down your feelings. It's not about perfect journaling—it's about showing up for yourself, even if just for a minute.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                The app guides you through gentle prompts, helps you track your emotional patterns, and celebrates your tiny wins. Because sometimes the biggest act of self-care is simply acknowledging how you feel.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <Button 
-                  size="lg" 
-                  onClick={() => scrollToSection('download')}
-                  className="rounded-xl bg-accent hover:bg-accent/90"
-                >
-                  Start Your Journey
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  onClick={() => scrollToSection('screenshots')}
-                  className="rounded-xl glass-card"
-                >
-                  See the App
-                </Button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              {screenshots.slice(0, 4).map((screenshot, index) => (
-                <div 
-                  key={index}
-                  className="cursor-pointer group relative"
-                  onClick={() => openLightbox({
-                    type: 'image',
-                    src: screenshot,
-                    alt: `Feelis screenshot ${index + 1}`,
-                    index
-                  })}
-                >
-                  <img
-                    src={screenshot}
-                    alt={`Feelis screenshot ${index + 1}`}
-                    className="w-full aspect-[9/16] object-cover rounded-[20px] shadow-lg hover:shadow-xl transition-shadow duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[20px] flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Button size="icon" variant="outline" className="glass-card">
-                        <Play className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🌱</span>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Gentle Growth</h4>
-              <p className="text-muted-foreground">
-                Track your emotional journey with care and compassion, celebrating every small step forward.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💝</span>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Daily Ritual</h4>
-              <p className="text-muted-foreground">
-                Create a simple, beautiful moment each day to connect with your feelings and inner peace.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">✨</span>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Beautiful Flow</h4>
-              <p className="text-muted-foreground">
-                Experience a thoughtfully designed interface that makes emotional wellness feel effortless.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Screenshots Section */}
-      <section id="screenshots" className="py-20 px-6">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              See Feelis in action
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Take a peek at the cozy interface and gentle interactions that make Feelis feel like a warm hug.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {screenshots.map((screenshot, index) => (
-              <div 
-                key={index}
-                className="cursor-pointer group relative"
-                onClick={() => openLightbox({
-                  type: 'image',
-                  src: screenshot,
-                  alt: `Feelis screenshot ${index + 1}`,
-                  index
-                })}
-              >
-                <img
-                  src={screenshot}
-                  alt={`Feelis screenshot ${index + 1}`}
-                  className="w-full aspect-[9/16] object-cover rounded-[20px] shadow-lg hover:shadow-xl transition-shadow duration-300"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[20px] flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button size="icon" variant="outline" className="glass-card">
-                      <Play className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
             ))}
           </div>
         </div>
