@@ -36,19 +36,64 @@ const webTired = '/src/assets/videos/web_Animation_background_tired.mp4'
 
 // Gallery videos array
 const galleryVideos = [
-  { src: webAngry, alt: 'Angry emotion background animation' },
-  { src: webAnxious, alt: 'Anxious emotion background animation' },
-  { src: webCalm, alt: 'Calm emotion background animation' },
-  { src: webEmpty, alt: 'Empty emotion background animation' },
-  { src: webExcited, alt: 'Excited emotion background animation' },
-  { src: webGrateful, alt: 'Grateful emotion background animation' },
-  { src: webHappy, alt: 'Happy emotion background animation' },
-  { src: webSad, alt: 'Sad emotion background animation' },
-  { src: webTired, alt: 'Tired emotion background animation' }
+  { 
+    src: webExcited, 
+    alt: 'Excited emotion background animation',
+    emotion: 'Excited',
+    description: 'When joy bubbles up from within'
+  },
+  { 
+    src: webHappy, 
+    alt: 'Happy emotion background animation',
+    emotion: 'Happy',
+    description: 'Finding moments of pure joy'
+  },
+  { 
+    src: webGrateful, 
+    alt: 'Grateful emotion background animation',
+    emotion: 'Grateful',
+    description: 'Appreciating life\'s simple gifts'
+  },
+  { 
+    src: webCalm, 
+    alt: 'Calm emotion background animation',
+    emotion: 'Calm',
+    description: 'Finding peace in the present moment'
+  },
+  { 
+    src: webAnxious, 
+    alt: 'Anxious emotion background animation',
+    emotion: 'Anxious',
+    description: 'When worry takes over your mind'
+  },
+  { 
+    src: webTired, 
+    alt: 'Tired emotion background animation',
+    emotion: 'Tired',
+    description: 'When your energy feels drained'
+  },
+  { 
+    src: webAngry, 
+    alt: 'Angry emotion background animation',
+    emotion: 'Angry',
+    description: 'When frustration builds up inside'
+  },
+  { 
+    src: webSad, 
+    alt: 'Sad emotion background animation',
+    emotion: 'Sad',
+    description: 'When your heart feels heavy'
+  },
+  { 
+    src: webEmpty, 
+    alt: 'Empty emotion background animation',
+    emotion: 'Empty',
+    description: 'When you feel disconnected'
+  }
 ]
 
 interface GalleryVideoProps {
-  video: { src: string; alt: string }
+  video: { src: string; alt: string; emotion: string; description: string }
   index: number
   onVideoClick: (content: any) => void
 }
@@ -108,6 +153,14 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
           <Play className="w-4 h-4" />
         )}
       </Button>
+
+      {/* Emotion Label */}
+      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="bg-black/20 backdrop-blur-sm rounded-xl p-3 text-white">
+          <h3 className="font-bold text-lg mb-1">{video.emotion}</h3>
+          <p className="text-sm opacity-90">{video.description}</p>
+        </div>
+      </div>
     </div>
   )
 }
