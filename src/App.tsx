@@ -12,6 +12,16 @@ import { HowItWorks } from '@/components/HowItWorks'
 // Note: Replace with actual logo when available
 const feelisLogo = '/src/assets/images/feelis_logo.png'
 
+// Screenshot images
+const screenshots = [
+  '/src/assets/images/ss01.jpeg',
+  '/src/assets/images/ss02.jpeg',
+  '/src/assets/images/ss03.jpeg',
+  '/src/assets/images/ss04.jpeg',
+  '/src/assets/images/ss05.jpeg',
+  '/src/assets/images/ss06.jpeg'
+]
+
 // Video paths - using Vite's public URL format
 const heroVideo = '/src/assets/videos/emoly_intro_trim.mp4'
 const webAngry = '/src/assets/videos/web_Animation_background_angry.mp4'
@@ -45,30 +55,12 @@ interface GalleryVideoProps {
 
 function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [hasError, setHasError] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
-
-  // Reset error state when video src changes
-  useEffect(() => {
-    setHasError(false)
-    setIsLoading(true)
-    
-    // Timeout to prevent infinite loading
-    const loadingTimer = setTimeout(() => {
-      if (isLoading) {
-        console.warn(`⏰ Loading timeout for video ${index}:`, video.src)
-        setIsLoading(false)
-      }
-    }, 3000)
-    
-    return () => clearTimeout(loadingTimer)
-  }, [video.src, isLoading])
 
   const togglePlayPause = (e: React.MouseEvent) => {
     e.stopPropagation()
     const videoElement = videoRef.current
-    if (!videoElement || hasError) return
+    if (!videoElement) return
 
     if (isPlaying) {
       videoElement.pause()
@@ -80,94 +72,12 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
   }
 
   const handleVideoClick = () => {
-    if (hasError) return
-    
-    // Try to play the video on click if it's not playing
-    const videoElement = videoRef.current
-    if (videoElement && !isPlaying) {
-      videoElement.play().catch((e) => {
-        console.warn(`Click play failed for video ${index}:`, e.message)
-      })
-    }
-    
     onVideoClick({
       type: 'video',
       src: video.src,
       alt: video.alt,
       index
     })
-  }
-
-  const handleRetry = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    setHasError(false)
-    setIsLoading(true)
-    const videoElement = videoRef.current
-    if (videoElement) {
-      videoElement.load()
-    }
-  }
-
-  const handleLoadedData = () => {
-    console.log(`✅ Gallery video ${index} loaded successfully:`, video.src)
-    setHasError(false)
-    setIsLoading(false)
-  }
-
-  const handleCanPlay = () => {
-    console.log(`🎬 Gallery video ${index} can play:`, video.src)
-    setIsLoading(false)
-    // Try to play the video
-    const videoElement = videoRef.current
-    if (videoElement) {
-      videoElement.play().catch((e) => {
-        console.warn(`Play failed for video ${index}:`, e.message)
-      })
-    }
-  }
-
-  const handleError = (e: any) => {
-    console.error(`❌ Gallery video ${index} error:`, {
-      src: video.src,
-      error: e.target?.error,
-      networkState: e.target?.networkState,
-      readyState: e.target?.readyState,
-      fullUrl: window.location.origin + video.src
-    })
-    setHasError(true)
-    setIsLoading(false)
-  }
-
-  if (isLoading) {
-    return (
-      <div className="gallery-video cursor-pointer group relative" onClick={handleVideoClick}>
-        <div className="w-full aspect-[9/16] bg-muted rounded-[20px] flex flex-col items-center justify-center p-4">
-          <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-2"></div>
-          <p className="text-muted-foreground text-sm">Loading video...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (hasError) {
-    return (
-      <div className="gallery-video cursor-pointer group relative" onClick={handleVideoClick}>
-        <div className="w-full aspect-[9/16] bg-muted rounded-[20px] flex flex-col items-center justify-center p-4">
-          <p className="text-muted-foreground text-center mb-2">Video unavailable</p>
-          <p className="text-muted-foreground text-xs text-center opacity-70 mb-3">
-            Video {index + 1}
-          </p>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={handleRetry}
-            className="text-xs"
-          >
-            Retry
-          </Button>
-        </div>
-      </div>
-    )
   }
 
   return (
@@ -179,10 +89,7 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
         muted
         loop
         playsInline
-        preload="metadata"
-        onError={handleError}
-        onLoadedData={handleLoadedData}
-        onCanPlay={handleCanPlay}
+        autoPlay
         onPause={() => setIsPlaying(false)}
         onPlay={() => setIsPlaying(true)}
       >
@@ -360,6 +267,12 @@ function App() {
               <button onClick={() => scrollToSection('gallery')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
                 Gallery
               </button>
+              <button onClick={() => scrollToSection('daily-moment')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
+                Daily Moment
+              </button>
+              <button onClick={() => scrollToSection('screenshots')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
+                Screenshots
+              </button>
               <button onClick={() => scrollToSection('video')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
                 Video
               </button>
@@ -530,6 +443,154 @@ function App() {
         </div>
       </section>
 
+      {/* Your Daily Moment of Peace Section */}
+      <section id="daily-moment" className="py-20 px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              Your Daily Moment of Peace
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Feelis is designed to be a simple, gentle, and beautiful flow.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">
+                A gentle ritual for your heart
+              </h3>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Every day, take a moment to breathe with Pearll and write down your feelings. It's not about perfect journaling—it's about showing up for yourself, even if just for a minute.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                The app guides you through gentle prompts, helps you track your emotional patterns, and celebrates your tiny wins. Because sometimes the biggest act of self-care is simply acknowledging how you feel.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <Button 
+                  size="lg" 
+                  onClick={() => scrollToSection('download')}
+                  className="rounded-xl bg-accent hover:bg-accent/90"
+                >
+                  Start Your Journey
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  onClick={() => scrollToSection('screenshots')}
+                  className="rounded-xl glass-card"
+                >
+                  See the App
+                </Button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {screenshots.slice(0, 4).map((screenshot, index) => (
+                <div 
+                  key={index}
+                  className="cursor-pointer group relative"
+                  onClick={() => openLightbox({
+                    type: 'image',
+                    src: screenshot,
+                    alt: `Feelis screenshot ${index + 1}`,
+                    index
+                  })}
+                >
+                  <img
+                    src={screenshot}
+                    alt={`Feelis screenshot ${index + 1}`}
+                    className="w-full aspect-[9/16] object-cover rounded-[20px] shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[20px] flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Button size="icon" variant="outline" className="glass-card">
+                        <Play className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🌱</span>
+              </div>
+              <h4 className="text-xl font-bold mb-2">Gentle Growth</h4>
+              <p className="text-muted-foreground">
+                Track your emotional journey with care and compassion, celebrating every small step forward.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">💝</span>
+              </div>
+              <h4 className="text-xl font-bold mb-2">Daily Ritual</h4>
+              <p className="text-muted-foreground">
+                Create a simple, beautiful moment each day to connect with your feelings and inner peace.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">✨</span>
+              </div>
+              <h4 className="text-xl font-bold mb-2">Beautiful Flow</h4>
+              <p className="text-muted-foreground">
+                Experience a thoughtfully designed interface that makes emotional wellness feel effortless.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Screenshots Section */}
+      <section id="screenshots" className="py-20 px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              See Feelis in action
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Take a peek at the cozy interface and gentle interactions that make Feelis feel like a warm hug.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {screenshots.map((screenshot, index) => (
+              <div 
+                key={index}
+                className="cursor-pointer group relative"
+                onClick={() => openLightbox({
+                  type: 'image',
+                  src: screenshot,
+                  alt: `Feelis screenshot ${index + 1}`,
+                  index
+                })}
+              >
+                <img
+                  src={screenshot}
+                  alt={`Feelis screenshot ${index + 1}`}
+                  className="w-full aspect-[9/16] object-cover rounded-[20px] shadow-lg hover:shadow-xl transition-shadow duration-300"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[20px] flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Button size="icon" variant="outline" className="glass-card">
+                      <Play className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Video Section */}
       <section id="video" className="py-20 px-6">
         <div className="container mx-auto">
@@ -648,6 +709,12 @@ function App() {
                 </button>
                 <button onClick={() => scrollToSection('gallery')} className="block text-muted-foreground hover:text-foreground transition-colors">
                   Gallery
+                </button>
+                <button onClick={() => scrollToSection('daily-moment')} className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Daily Moment
+                </button>
+                <button onClick={() => scrollToSection('screenshots')} className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Screenshots
                 </button>
                 <button onClick={() => scrollToSection('video')} className="block text-muted-foreground hover:text-foreground transition-colors">
                   Video
