@@ -266,16 +266,61 @@
  * 중앙 영역을 완전히 피해서 위치를 잡습니다.
  */
 
-/* --- 로고 위쪽 배치 (4인치 위로 올림) --- */
-.pos-top-1 { top: -5%; left: -5%; }
+/* --- 로고 위쪽 배치 (모바일 대응) --- */
+.pos-top-1 { 
+  top: -25%; 
+  left: -5%; 
+}
+@media (max-width: 768px) {
+  .pos-top-1 { 
+    top: -40%; 
+    left: -15%; 
+  }
+}
+@media (max-width: 480px) {
+  .pos-top-1 { 
+    top: -50%; 
+    left: -20%; 
+  }
+}
 .pos-top-2 { top: 5%; right: 15%; } /* 로고 오른쪽 */
-.pos-top-3 { top: -15%; left: 35%; }
+.pos-top-3 { top: -35%; left: 35%; }
 
-/* --- 추가 위쪽 배치 (2인치 더 위로) --- */
+/* --- 추가 위쪽 배치 (모바일 대응) --- */
 .pos-top-4 { top: -5%; left: 25%; }
-.pos-top-5 { top: -8%; right: 25%; }
+.pos-top-5 { 
+  top: -28%; 
+  right: 25%; 
+}
+@media (max-width: 768px) {
+  .pos-top-5 { 
+    top: -35%; 
+    right: 20%; 
+  }
+}
+@media (max-width: 480px) {
+  .pos-top-5 { 
+    top: -45%; 
+    right: 15%; 
+  }
+}
 .pos-top-6 { top: 5%; left: 15%; } /* 로고 왼쪽 */
-.pos-top-7 { top: 12%; right: 5%; } /* 5번 꽃 오른쪽 */
+.pos-top-7 { 
+  top: -12%; 
+  right: 5%; 
+}
+@media (max-width: 768px) {
+  .pos-top-7 { 
+    top: -20%; 
+    right: 10%; 
+  }
+}
+@media (max-width: 480px) {
+  .pos-top-7 { 
+    top: -30%; 
+    right: 5%; 
+  }
+}
 
 /* --- 버튼 아래쪽 배치 (4인치 아래로 내림) --- */
 .pos-bottom-1 { bottom: -22%; left: 20%; }
