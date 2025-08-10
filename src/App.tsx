@@ -11,6 +11,10 @@ import { toast, Toaster } from 'sonner'
 // Import static assets with fallback handling
 const feelisLogo = new URL('./assets/images/feelis_logo.png', import.meta.url).href
 
+// Floating animation images
+const flowerImage = new URL('./assets/images/flower.png', import.meta.url).href
+const cactusImage = new URL('./assets/images/cactus01.png', import.meta.url).href
+
 // Screenshot images
 const ss01 = new URL('./assets/images/ss01.jpeg', import.meta.url).href
 const ss02 = new URL('./assets/images/ss02.jpeg', import.meta.url).href
@@ -163,6 +167,64 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
           <p className="text-sm opacity-90">{video.description}</p>
         </div>
       </div>
+    </div>
+  )
+}
+
+// Floating Animation Component
+function FloatingAnimation() {
+  return (
+    <div className="flower-container">
+      {/* 로고 위쪽 배치 */}
+      <div className="flower pos-top-1 anim-spin-float">
+        <img 
+          src={flowerImage} 
+          alt="Floating flower" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
+      <div className="flower pos-top-2 anim-bounce" style={{animationDelay: '-1.5s'}}>
+        <img 
+          src={flowerImage} 
+          alt="Floating flower" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
+      <div className="flower pos-top-3 anim-wobble">
+        <img 
+          src={flowerImage} 
+          alt="Floating flower" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
+      <div className="flower pos-top-4 anim-float" style={{animationDelay: '-2.5s'}}>
+        <img 
+          src={flowerImage} 
+          alt="Floating flower" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
+      <div className="flower pos-top-5 anim-pulse" style={{animationDelay: '-3s'}}>
+        <img 
+          src={flowerImage} 
+          alt="Floating flower" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
+      <div className="flower pos-top-6 anim-bounce" style={{animationDelay: '-1s'}}>
+        <img 
+          src={flowerImage} 
+          alt="Floating flower" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
+
     </div>
   )
 }
@@ -390,7 +452,8 @@ function App() {
       <section id="home" className="py-18 px-6">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="relative">
+              <FloatingAnimation />
               <div className="flex justify-center mb-12">
                 {!imagesLoaded && (
                   <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl bg-gradient-to-r from-emerald-100 to-teal-100 animate-pulse flex items-center justify-center">
