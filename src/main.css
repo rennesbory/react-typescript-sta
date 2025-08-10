@@ -185,3 +185,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom utility classes for Feelis */
+@layer utilities {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .device-frame {
+    @apply bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900;
+  }
+}
