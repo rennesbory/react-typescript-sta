@@ -268,56 +268,71 @@
 
 /* --- 로고 위쪽 배치 (모바일 대응) --- */
 .pos-top-1 { 
-  top: -25%; 
+  top: -15%; 
   left: -5%; 
 }
 @media (max-width: 768px) {
   .pos-top-1 { 
-    top: -40%; 
-    left: -15%; 
+    top: -10%; 
+    left: -10%; 
   }
 }
 @media (max-width: 480px) {
   .pos-top-1 { 
-    top: -50%; 
-    left: -20%; 
+    top: -5%; 
+    left: -15%; 
   }
 }
 .pos-top-2 { top: 5%; right: 15%; } /* 로고 오른쪽 */
-.pos-top-3 { top: -35%; left: 35%; }
+.pos-top-3 { 
+  top: -25%; 
+  left: 35%; 
+}
+@media (max-width: 768px) {
+  .pos-top-3 { 
+    top: -18%; 
+    left: 30%; 
+  }
+}
+@media (max-width: 480px) {
+  .pos-top-3 { 
+    top: -12%; 
+    left: 25%; 
+  }
+}
 
 /* --- 추가 위쪽 배치 (모바일 대응) --- */
 .pos-top-4 { top: -5%; left: 25%; }
 .pos-top-5 { 
-  top: -28%; 
+  top: -18%; 
   right: 25%; 
 }
 @media (max-width: 768px) {
   .pos-top-5 { 
-    top: -35%; 
+    top: -12%; 
     right: 20%; 
   }
 }
 @media (max-width: 480px) {
   .pos-top-5 { 
-    top: -45%; 
+    top: -8%; 
     right: 15%; 
   }
 }
 .pos-top-6 { top: 5%; left: 15%; } /* 로고 왼쪽 */
 .pos-top-7 { 
-  top: -12%; 
+  top: -8%; 
   right: 5%; 
 }
 @media (max-width: 768px) {
   .pos-top-7 { 
-    top: -20%; 
+    top: -5%; 
     right: 10%; 
   }
 }
 @media (max-width: 480px) {
   .pos-top-7 { 
-    top: -30%; 
+    top: -2%; 
     right: 5%; 
   }
 }
