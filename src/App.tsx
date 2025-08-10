@@ -175,42 +175,7 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
 function FloatingAnimation() {
   return (
     <div className="flower-container">
-      {/* 로고 위쪽 배치 */}
-      <div className="flower pos-top-1 anim-spin-float" style={{width: '160px', height: '160px'}}>
-        <img 
-          src={flowerImage} 
-          alt="Floating flower" 
-          className="w-full h-full object-contain"
-        />
-      </div>
-      
-      <div className="flower pos-top-5 anim-gentle-wiggle" style={{animationDelay: '-3s'}}>
-        <img 
-          src={flowerImage} 
-          alt="Floating flower" 
-          className="w-full h-full object-contain"
-        />
-      </div>
-      
-      <div className="flower pos-top-7 anim-gentle-wiggle" style={{animationDelay: '-2s', width: '105.6px', height: '105.6px'}}>
-        <img 
-          src={flowerImage} 
-          alt="Floating flower" 
-          className="w-full h-full object-contain"
-        />
-      </div>
-      
-      <div className="flower pos-top-3 anim-gentle-wiggle" style={{animationDelay: '-1s', width: '56px', height: '56px'}}>
-        <img 
-          src={flowerImage} 
-          alt="Floating flower" 
-          className="w-full h-full object-contain"
-        />
-      </div>
-      
-
-      
-
+      {/* 추가 꽃들 - 배경 장식용 */}
     </div>
   )
 }
@@ -425,7 +390,7 @@ function App() {
               </Button>
               <Button 
                 onClick={() => toast.info("Coming Soon! 🚀", { duration: 3000 })}
-                className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg active:scale-95 transform transition-all duration-200 ease-out text-white border-0 text-sm md:text-base px-3 md:px-4 py-2"
+                className="rounded-2xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-102 hover:shadow-xl active:scale-98 transform transition-all duration-300 ease-out text-white border-0 text-sm md:text-base px-4 md:px-6 py-2 font-medium"
               >
                 Get the App
               </Button>
@@ -441,48 +406,40 @@ function App() {
             <div className="relative">
               <FloatingAnimation />
               <div className="flex justify-center mb-12">
-                {!imagesLoaded && (
-                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl bg-gradient-to-r from-emerald-100 to-teal-100 animate-pulse flex items-center justify-center">
-                    <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-gradient-to-r from-emerald-200 to-teal-200 animate-pulse"></div>
-                  </div>
-                )}
-                <img 
-                  src={feelisLogo} 
-                  alt="Feelis logo" 
-                  className={`w-32 h-32 md:w-48 md:h-48 rounded-2xl object-cover transition-opacity duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  onLoad={() => setImagesLoaded(true)}
-                  onError={(e) => {
-                    console.warn('Logo failed to load, using fallback')
-                    e.currentTarget.style.display = 'none'
-                    setImagesLoaded(true)
-                  }}
-                />
+                <div className="w-40 h-40 md:w-60 md:h-60 flex items-center justify-center">
+                  <img 
+                    src={flowerImage} 
+                    alt="Floating flower" 
+                    className="w-full h-full object-contain animate-spin transition-all duration-300 hover:scale-105"
+                    style={{animationDuration: '8s'}}
+                  />
+                </div>
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-center">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-center">
                 <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
-                  A soft place for your feelings.
+                  A Soft Place for Your Feelings
                 </span>
               </h1>
-              <p className={`text-lg md:text-xl mb-8 leading-relaxed text-center transition-colors duration-300 ${isDarkMode ? 'text-[oklch(0.9_0.01_85)]' : 'text-muted-foreground'}`}>
+              <p className={`text-base md:text-lg lg:text-xl mb-10 leading-relaxed text-center transition-colors duration-300 max-w-2xl mx-auto ${isDarkMode ? 'text-[oklch(0.9_0.01_85)]' : 'text-muted-foreground'}`}>
                 A cozy little journaling hug for your heart, guided by Pearll
               </p>
               
-              <div className="flex flex-wrap gap-4 mb-6 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center items-center">
                 <Button 
                   size="lg" 
                   onClick={() => toast.info("Coming Soon! 🚀", { duration: 3000 })}
-                  className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg active:scale-95 transform transition-all duration-200 ease-out text-white border-0"
+                  className="rounded-2xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-102 hover:shadow-xl active:scale-98 transform transition-all duration-300 ease-out text-white border-0 px-8 py-3 text-base font-medium"
                 >
-                  <Download className="w-5 h-5 mr-2" />
+                  <Download className="w-5 h-5 mr-3" />
                   Download (iOS)
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
                   onClick={() => scrollToSection('video')}
-                  className="rounded-xl glass-card hover:scale-105 hover:shadow-lg hover:bg-white/10 active:scale-95 transform transition-all duration-200 ease-out"
+                  className="rounded-2xl glass-card hover:scale-102 hover:shadow-xl hover:bg-white/10 active:scale-98 transform transition-all duration-300 ease-out px-8 py-3 text-base font-medium"
                 >
-                  <Play className="w-5 h-5 mr-2" />
+                  <Play className="w-5 h-5 mr-3" />
                   Watch Trailer
                 </Button>
               </div>
