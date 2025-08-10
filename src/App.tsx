@@ -358,7 +358,7 @@ function App() {
                 <Button 
                   size="lg" 
                   onClick={() => scrollToSection('download')}
-                  className="rounded-xl bg-accent hover:bg-accent/90"
+                  className="rounded-xl bg-accent hover:bg-accent/90 hover:scale-105 hover:shadow-lg transition-all duration-300"
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download (iOS)
@@ -367,7 +367,7 @@ function App() {
                   size="lg" 
                   variant="outline" 
                   onClick={() => scrollToSection('video')}
-                  className="rounded-xl glass-card"
+                  className="rounded-xl glass-card hover:scale-105 hover:shadow-lg hover:bg-white/10 transition-all duration-300"
                 >
                   <Play className="w-5 h-5 mr-2" />
                   Watch Trailer
@@ -456,12 +456,12 @@ function App() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="p-6 glass-card border-0">
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm font-semibold text-muted-foreground mb-3 opacity-90">
+              <Card key={index} className="p-6 glass-card border-0 group cursor-pointer hover:shadow-xl hover:-translate-y-2 transition-all duration-300 hover:bg-white/5">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                <p className="text-sm font-semibold text-muted-foreground mb-3 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
                   {feature.subtitle}
                 </p>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">{feature.description}</p>
               </Card>
             ))}
           </div>
@@ -501,14 +501,14 @@ function App() {
                 <img
                   src="/src/assets/images/ss03.jpeg"
                   alt="Feelis emotion selection screen"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss02.jpeg */}
                 <img
                   src="/src/assets/images/ss02.jpeg"
                   alt="Feelis journaling environment screen"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
               </div>
             </div>
@@ -527,14 +527,14 @@ function App() {
                 <img
                   src="/src/assets/images/ss01.jpeg"
                   alt="Feelis journaling screen 1"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss05.jpeg */}
                 <img
                   src="/src/assets/images/ss05.jpeg"
                   alt="Feelis journaling screen 2"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
               </div>
             </div>
@@ -579,14 +579,14 @@ function App() {
                 <img
                   src="/src/assets/images/ss06.jpeg"
                   alt="Feelis insights screen 1"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss07.jpeg */}
                 <img
                   src="/src/assets/images/ss07.jpeg"
                   alt="Feelis insights screen 2"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
               </div>
             </div>
@@ -605,14 +605,14 @@ function App() {
                 <img
                   src="/src/assets/images/ss08.jpeg"
                   alt="Feelis calm screen 1"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
 
                 {/* Right Phone - ss09.jpeg */}
                 <img
                   src="/src/assets/images/ss09.jpeg"
                   alt="Feelis calm screen 2"
-                  className="w-80 rounded-3xl shadow-xl"
+                  className="w-80 rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 />
               </div>
             </div>
@@ -688,7 +688,7 @@ function App() {
                     type: 'video',
                     src: heroVideo
                   })}
-                  className="rounded-xl"
+                  className="rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300"
                 >
                   Open in Lightbox
                 </Button>
@@ -696,7 +696,7 @@ function App() {
                   size="lg" 
                   variant="outline"
                   onClick={() => scrollToSection('features')}
-                  className="rounded-xl glass-card"
+                  className="rounded-xl glass-card hover:scale-105 hover:shadow-lg hover:bg-white/10 transition-all duration-300"
                 >
                   Explore Features
                 </Button>
@@ -724,7 +724,7 @@ function App() {
               className="flex-1 border-0 bg-transparent"
               required
             />
-            <Button type="submit" className="rounded-xl">
+            <Button type="submit" className="rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300">
               Notify Me
             </Button>
           </form>
