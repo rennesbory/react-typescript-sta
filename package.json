@@ -1,7 +1,8 @@
 {
-    "name": "spark-template",
+    "name": "feelis-web",
     "private": true,
     "version": "0.0.0",
+    "homepage": "https://rennesbory.github.io/react-typescript-sta",
     "type": "module",
     "scripts": {
         "dev": "vite",
