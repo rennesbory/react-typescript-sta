@@ -132,7 +132,7 @@ function GalleryVideo({ video, index, onVideoClick }: GalleryVideoProps) {
       <video
         ref={videoRef}
         src={video.src}
-        className="w-full aspect-[9/16] object-cover"
+        className="w-full aspect-[9/16] object-cover rounded-[20px]"
         muted
         loop
         playsInline
@@ -444,7 +444,7 @@ function App() {
             <div>
               <div className="hero-video-container">
                 {heroVideoError ? (
-                  <div className="w-full aspect-[9/16] bg-muted flex flex-col items-center justify-center p-4">
+                  <div className="w-full aspect-[9/16] bg-muted rounded-[20px] flex flex-col items-center justify-center p-4">
                     <p className="text-muted-foreground text-center mb-2">Video unavailable</p>
                     <p className="text-muted-foreground text-xs text-center opacity-70 mb-3">
                       Hero video
@@ -466,7 +466,7 @@ function App() {
                   <video
                     ref={heroVideoRef}
                     src={heroVideo}
-                    className="w-full aspect-[9/16] object-cover"
+                    className="w-full aspect-[9/16] object-cover rounded-[20px]"
                     muted
                     loop
                     playsInline
