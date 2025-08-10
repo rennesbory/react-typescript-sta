@@ -314,32 +314,12 @@ function App() {
               </span>
             </button>
             
-            <div className="hidden md:flex items-center gap-6">
-              <button onClick={() => scrollToSection('features')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
-                Features
-              </button>
-              <button onClick={() => scrollToSection('how-it-works')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
-                How It Works
-              </button>
-              <button onClick={() => scrollToSection('gallery')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
-                Gallery
-              </button>
-              <button onClick={() => scrollToSection('daily-moment')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
-                Daily Moment
-              </button>
-              <button onClick={() => scrollToSection('screenshots')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
-                Screenshots
-              </button>
-              <button onClick={() => scrollToSection('video')} className="font-semibold opacity-85 hover:opacity-100 transition-opacity">
-                Video
-              </button>
-              <Button 
-                onClick={() => scrollToSection('download')}
-                className="rounded-xl"
-              >
-                Get the App
-              </Button>
-            </div>
+            <Button 
+              onClick={() => scrollToSection('download')}
+              className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg transition-all duration-300 text-white border-0"
+            >
+              Get the App
+            </Button>
           </nav>
         </div>
       </header>
