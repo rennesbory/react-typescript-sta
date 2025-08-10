@@ -269,20 +269,20 @@
 /* --- 로고 위쪽 배치 (모바일 대응) --- */
 .pos-top-1 { 
   top: -15%; 
-  left: -8%; 
+  left: -12%; 
   transform: scale(0.9);
 }
 @media (max-width: 768px) {
   .pos-top-1 { 
     top: -10%; 
-    left: -12%; 
+    left: -16%; 
     transform: scale(0.9);
   }
 }
 @media (max-width: 480px) {
   .pos-top-1 { 
     top: -5%; 
-    left: -18%; 
+    left: -22%; 
     transform: scale(0.9);
   }
 }
@@ -325,18 +325,18 @@
 .pos-top-6 { top: 5%; left: 15%; } /* 로고 왼쪽 */
 .pos-top-7 { 
   top: -8%; 
-  right: 2%; 
+  right: -2%; 
 }
 @media (max-width: 768px) {
   .pos-top-7 { 
     top: -5%; 
-    right: 7%; 
+    right: 2%; 
   }
 }
 @media (max-width: 480px) {
   .pos-top-7 { 
     top: -2%; 
-    right: 2%; 
+    right: -2%; 
   }
 }
 
