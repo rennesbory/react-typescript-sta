@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { Button } from './components/ui/button'
+import { Card } from './components/ui/card'
+import { Input } from './components/ui/input'
+import { Dialog, DialogContent } from './components/ui/dialog'
 import { Play, X, Download, ArrowRight, ArrowLeft, Pause } from '@phosphor-icons/react'
-import { cn } from '@/lib/utils'
+import { cn } from './lib/utils'
 import { toast, Toaster } from 'sonner'
 
 

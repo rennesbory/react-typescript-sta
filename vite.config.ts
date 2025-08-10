@@ -9,4 +9,9 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: '/react-typescript-sta/',
+  resolve: {
+    alias: {
+      '@': './src'
+    }
+  }
 })
