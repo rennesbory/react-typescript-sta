@@ -580,20 +580,20 @@ function App() {
               <div 
                 ref={scrollContainerRef}
                 onScroll={handleScroll}
-                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+                className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
               >
                 {/* Phone - ss03.jpeg */}
                 <img
                   src={ss03}
                   alt="Feelis emotion selection screen"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss02.jpeg */}
                 <img
                   src={ss02}
                   alt="Feelis journaling environment screen"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
               </div>
 
@@ -653,20 +653,20 @@ function App() {
               <div 
                 ref={scrollContainerRef2}
                 onScroll={handleScroll2}
-                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+                className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
               >
                 {/* Phone - ss01.jpeg */}
                 <img
                   src={ss01}
                   alt="Feelis journaling screen 1"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss05.jpeg */}
                 <img
                   src={ss05}
                   alt="Feelis journaling screen 2"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
               </div>
 
@@ -726,20 +726,20 @@ function App() {
               <div 
                 ref={scrollContainerRef3}
                 onScroll={handleScroll3}
-                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+                className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
               >
                 {/* Phone - ss06.jpeg */}
                 <img
                   src={ss06}
                   alt="Feelis insights screen 1"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss07.jpeg */}
                 <img
                   src={ss07}
                   alt="Feelis insights screen 2"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
               </div>
 
@@ -799,20 +799,20 @@ function App() {
               <div 
                 ref={scrollContainerRef4}
                 onScroll={handleScroll4}
-                className="flex gap-0 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+                className="flex gap-6 justify-start lg:justify-center overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scroll-smooth snap-x snap-mandatory scrollbar-hide"
               >
                 {/* Phone - ss08.jpeg */}
                 <img
                   src={ss08}
                   alt="Feelis calm screen 1"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
 
                 {/* Phone - ss09.jpeg */}
                 <img
                   src={ss09}
                   alt="Feelis calm screen 2"
-                  className="w-full aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
+                  className="w-full lg:w-64 xl:w-80 aspect-[9/19.5] rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer object-cover flex-shrink-0 snap-start"
                 />
               </div>
 
