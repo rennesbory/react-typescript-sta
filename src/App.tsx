@@ -3,7 +3,7 @@ import { Button } from './components/ui/button'
 import { Card } from './components/ui/card'
 import { Input } from './components/ui/input'
 import { Dialog, DialogContent } from './components/ui/dialog'
-import { Play, X, Download, ArrowRight, ArrowLeft, Pause } from '@phosphor-icons/react'
+import { Play, X, Download, ArrowRight, ArrowLeft, Pause, Moon, Sun } from '@phosphor-icons/react'
 import { cn } from './lib/utils'
 import { toast, Toaster } from 'sonner'
 
@@ -173,6 +173,7 @@ function App() {
   const [email, setEmail] = useState('')
   const [heroVideoError, setHeroVideoError] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
   const heroVideoRef = useRef<HTMLVideoElement>(null)
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(-1)
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -247,6 +248,11 @@ function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode)
+    document.documentElement.classList.toggle('dark')
+  }
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -291,7 +297,7 @@ function App() {
   }, [heroVideoError])
 
   return (
-    <div className="min-h-screen bg-[oklch(0.995_0.002_85)]">
+    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-[oklch(0.12_0.01_85)]' : 'bg-[oklch(0.995_0.002_85)]'}`}>
       <Toaster richColors position="top-right" />
       {/* Header */}
       <header className="sticky top-0 z-50 glass-card border-b">
@@ -315,12 +321,26 @@ function App() {
               </span>
             </button>
             
-            <Button 
-              onClick={() => toast.info("Coming Soon! 🚀", { duration: 3000 })}
-              className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg active:scale-95 transform transition-all duration-200 ease-out text-white border-0 text-sm md:text-base px-3 md:px-4 py-2"
-            >
-              Get the App
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button 
+                onClick={toggleDarkMode}
+                variant="outline"
+                size="sm"
+                className="rounded-xl glass-card hover:scale-105 hover:shadow-lg transition-all duration-200 ease-out"
+              >
+                {isDarkMode ? (
+                  <Sun className="w-4 h-4" />
+                ) : (
+                  <Moon className="w-4 h-4" />
+                )}
+              </Button>
+              <Button 
+                onClick={() => toast.info("Coming Soon! 🚀", { duration: 3000 })}
+                className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 hover:from-emerald-400 hover:to-teal-400 hover:scale-105 hover:shadow-lg active:scale-95 transform transition-all duration-200 ease-out text-white border-0 text-sm md:text-base px-3 md:px-4 py-2"
+              >
+                Get the App
+              </Button>
+            </div>
           </nav>
         </div>
       </header>
@@ -353,7 +373,7 @@ function App() {
                   A soft place for your feelings.
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed text-center">
+              <p className={`text-lg md:text-xl mb-8 leading-relaxed text-center transition-colors duration-300 ${isDarkMode ? 'text-[oklch(0.9_0.01_85)]' : 'text-muted-foreground'}`}>
                 A cozy little journaling hug for your heart, guided by Pearll
               </p>
               
@@ -704,25 +724,7 @@ function App() {
                 A short walkthrough of the breathing loop, emotion prompts, and the cozy visual system that makes you want to come back.
               </p>
               
-              <div className="flex flex-wrap gap-4">
-                <Button 
-                  onClick={() => openLightbox({
-                    type: 'video',
-                    src: heroVideo
-                  })}
-                  className="rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300"
-                >
-                  Open in Lightbox
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  onClick={() => scrollToSection('features')}
-                  className="rounded-xl glass-card hover:scale-105 hover:shadow-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  Explore Features
-                </Button>
-              </div>
+
             </div>
           </div>
         </div>
